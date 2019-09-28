@@ -1,0 +1,16 @@
+body {
+    background-color: #949c92;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.jumbotron {
+    background-color: #e0b53f;
+}
+
+.card-header {
+    background-color: #4cb332;
+}
+
+.card {
+    border: 2px solid #4cb332;
+}
