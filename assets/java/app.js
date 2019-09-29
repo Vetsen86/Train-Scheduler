@@ -6,6 +6,7 @@ $(document).ready(function() {
         var name = $("#train-name").val().trim();
         var destination = $("#destination").val().trim();
         var frequency = $("#frequency").val();
+        var time = $("#train-time").val();
 
         var newRow = $("<tr>");
         var nameData = $("<td>").text(name);
@@ -22,7 +23,12 @@ $(document).ready(function() {
 
         $("tbody").append(newRow);
 
-
+        database.ref().push({
+            trainName: name,
+            destination: destination,
+            frequency: frequency,
+            startTime: time
+        });
 
     }
 
