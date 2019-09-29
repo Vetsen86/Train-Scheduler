@@ -20,13 +20,13 @@ $(document).ready(function() {
         arrivalTime = moment(arrivalTime).format("hh:mm");
     }
 
-    function renderTrains() {
+    function trainToFirebase() {
         var name = $("#train-name").val().trim();
         var destination = $("#destination").val().trim();
         var frequency = $("#frequency").val();
         var time = $("#train-time").val();
 
-        calculateTime(time, frequency);
+        /*calculateTime(time, frequency);
 
         var newRow = $("<tr>");
         var nameData = $("<td>").text(name);
@@ -41,7 +41,7 @@ $(document).ready(function() {
         newRow.append(nextArrivalData);
         newRow.append(awayData);
 
-        $("tbody").append(newRow);
+        $("tbody").append(newRow);*/
 
         database.ref().push({
             trainName: name,
@@ -54,8 +54,36 @@ $(document).ready(function() {
 
     $("#submit").on("click", function(e) {
         e.preventDefault();
-        renderTrains();
+        trainToFirebase();
         $("input").val("");
+    });
+
+    database.ref().on("child_added", function(snapshot) {
+
+        console.log(snapshot.val());
+
+        var time = snapshot.val().startTime;
+        var frequency = snapshot.val().frequency;
+
+        calculateTime(time, frequency);
+
+        var newRow = $("<tr>");
+        var nameData = $("<td>").text(snapshot.val().trainName);
+        var destinationData = $("<td>").text(snapshot.val().destination);
+        var frequencyData = $("<td>").text(snapshot.val().frequency);
+        var nextArrivalData = $("<td>").text(arrivalTime);
+        var awayData = $("<td>").text(minutesAway);
+
+        newRow.append(nameData);
+        newRow.append(destinationData);
+        newRow.append(frequencyData);
+        newRow.append(nextArrivalData);
+        newRow.append(awayData);
+
+        $("tbody").append(newRow);
+
+    }, function(errorObject) {
+        console.log("Errors: " + errorObject.code);
     });
 
 });
