@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -52,12 +52,12 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                      <label for="train-name">Train Name</label>
-                      <input type="text" class="form-control" id="train-name" placeholder="Enter Train Name">
+                        <label for="train-name">Train Name</label>
+                        <input type="text" class="form-control" id="train-name" placeholder="Enter Train Name">
                     </div>
                     <div class="form-group">
-                      <label for="destination">Destination</label>
-                      <input type="text" class="form-control" id="destination" placeholder="Enter Destination">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="Enter Destination">
                     </div>
                     <div class="form-group">
                         <label for="train-time">First Train Time</label>
@@ -68,13 +68,35 @@
                         <input type="number" id="frequency" min="1">
                     </div>
                     <button type="submit" class="btn btn-secondary" id="submit">Submit</button>
-                  </form>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAChv0c4hkdWDSjlG8tuAW2POIlBbQfW5Y",
+            authDomain: "train-scheduler-7fab2.firebaseapp.com",
+            databaseURL: "https://train-scheduler-7fab2.firebaseio.com",
+            projectId: "train-scheduler-7fab2",
+            storageBucket: "train-scheduler-7fab2.appspot.com",
+            messagingSenderId: "312923272514",
+            appId: "1:312923272514:web:fe47e12794e6aa59f904db",
+            measurementId: "G-ZYR3GJ15LS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="assets/java/app.js"></script>
 </body>
 

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    var database = firebase.database();
+
     function renderTrains() {
         var name = $("#train-name").val().trim();
         var destination = $("#destination").val().trim();
